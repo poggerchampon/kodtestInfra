@@ -99,10 +99,21 @@ public class ApiCaller {
 				params += "skip=" + skip;
 			}
 			if (take != null) {
-				params += "take=" + take;
+				if(!params.equals("?")) {
+					params += "&take=" + take;
+				}else {
+					params += "take=" + take;
+						
+				}
 			}
 			if (filter != null) {
-				params += "filter=" + filter.replace("=", "%3D");
+				if(!params.equals("?")) {
+					params += "&filter=" + filter.replace("=", "%3D");
+				}else {
+					params += "filter=" + filter.replace("=", "%3D");
+						
+				}
+				
 			}
 		}
 		return params;
